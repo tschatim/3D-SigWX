@@ -1,0 +1,495 @@
+
+html,
+body,
+#viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#WebappHeaderDiv {
+  position: relative;
+  left: 46%;
+  top: 5px;
+}
+#WebappHeader {
+  position: relative;
+  left: 46%;
+  top: -20px;
+  font-weight: bolder;
+  font-size: 28px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif, Helvetica, sans-serif;
+  font-family: 'Century Gothic';
+  color: white;
+  text-shadow: 3px 2px 7px black;
+  
+}
+
+#layerToggle {
+  z-index: 99;
+  background-color: black;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0.75;
+  width: 200px;
+}
+#LayerToggleText {
+  font-weight: 800;
+}
+.layer-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.layer-symbol {
+  padding-right: 6px;
+}
+
+
+
+#menu {
+  padding: 0.8em;
+  max-width: 250px;
+}
+
+#sliceContainer {
+  width: inherit;
+}
+
+#sliceContainer {
+  max-width: 228px;
+}
+
+#infoDiv {
+  position: absolute;
+  top: 15px;
+  left: 60px;
+}
+
+#infoDiv input {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px;
+}
+
+/*#timeSlider {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 20px;
+}*/
+
+#LayerFilter {
+  border-radius: 8px;
+  height: 100%;
+  visibility: visible;
+  padding: 10px;
+  width: 200px;
+  opacity: 0.75;
+  background-color: black;
+}
+.filter-text {
+  font-weight: 800;
+}
+.filter-separator{
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+#cloudsFilterWrapper {
+  display: grid;
+  grid-template-columns: 50px 50px 50px; 
+  grid-template-rows: auto auto auto; 
+  grid-gap: 5px; 
+  row-gap: 5px;
+  grid-auto-flow: row;
+  height: 100%;
+  width: 200px;
+}
+.cloud-item {
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+  vertical-align: baseline;
+  cursor: pointer;
+  height: 20px;
+  color: white;
+  border-radius: 0px;
+  font-size: 13px;
+}
+.cloud-item:focus {
+  background-color: dimgrey;
+}
+.cloud-item:hover {
+  background-color: dimgrey;
+}
+
+#verticalWindFilterWrapper {
+  display: grid;
+  grid-template-columns: 23px 23px 23px 23px 23px 23px; 
+  grid-template-rows: auto auto auto auto auto; 
+  grid-gap: 5px;
+  row-gap: 5px;
+  grid-auto-flow: row; 
+  height: 100%;
+  width: 200px;
+}
+.verticalWind-item {
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+  vertical-align: baseline;
+  cursor: pointer;
+  height: 20px;
+  color: white;
+  border-radius: 0px;
+  font-size: 13px;
+}
+.verticalWind-item:focus {
+  background-color: dimgrey;
+}
+.verticalWind-item:hover {
+  background-color: dimgrey;
+}
+
+#ThunderstormFilterWrapper {
+  display: grid;
+  grid-template-columns: 88%;
+  grid-template-rows: auto auto auto auto auto; 
+  grid-gap: 5px; 
+  row-gap: 5px;
+  grid-auto-flow: row; 
+  height: 100%;
+  width: 200px;
+  align-items: left;
+}
+.thunderstorm-item {
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+  vertical-align: baseline;
+  cursor: pointer;
+  height: 20px;
+  color: white;
+  border-radius: 0px;
+  font-size: 13px;
+  text-align: left;
+}
+.thunderstorm-item:focus {
+  background-color: dimgrey;
+}
+.thunderstorm-item:hover {
+  background-color: dimgrey;
+}
+
+
+#PreferencesDiv {
+  z-index: 99;
+  background-color: black;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0.75;
+  width: 200px;
+  height: 400px;
+  overflow: auto;
+}
+#PreferenceTitle {
+  font-size: 18px;
+  font-weight: 1000;
+}
+.preference-subtitle {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 800;
+}
+.preference-text {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+#LayerDistanceFilterWrapper {
+  font-size: 12px;
+  padding: 2px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 9px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%; 
+  background: #4e8746;  
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4e8746;
+  cursor: pointer;
+}
+
+#LayerFilterReset {
+  font-size: 12px;
+  padding: 2px;
+}
+
+
+#FlightPath {
+  border-radius: 8px;
+  height: 100%;
+  visibility: visible;
+  padding: 10px;
+  width: 200px;
+  opacity: 0.75;
+  background-color: black;
+}
+
+.FlightPath-item {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  color: white;
+  border-radius: 0px;
+}
+
+.FlightPath-item:hover {
+  background-color: dimgrey;
+}
+
+.FlightPath-item {
+  padding-bottom: 10px;
+}
+
+#FlightPathText {
+  font-weight: 800;
+}
+
+#AddPathSymbol {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#DeletePathSymbol {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#EditPathSymbol {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#PathProfile {
+  border-radius: 8px;
+  height: 100%;
+  visibility: visible;
+  padding: 10px;
+  width: 200px;
+  opacity: 0.75;
+  background-color: black;
+}
+.PathProfile-item:hover {
+  background-color: dimgrey;
+}
+#PathProfileText {
+  font-weight: 800;
+}
+
+
+#DateDiv {
+  bottom: 30px;
+  left: 15px;
+  width: 150px;
+  height: 32px;
+  background-color:darkred;
+  opacity: 0.75;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  line-height: 32px;  
+  border-radius: 8px;
+  font-weight: 700;
+
+}
+#TimeDiv {
+  background-color: black;
+  opacity: 0.0;
+  color: white;
+  padding: 5px;
+}
+.time-area{
+  bottom: 0px;
+  left: 15px;
+  width: 550px;
+  height: 62px;
+  border-radius: 8px;
+
+}
+.time-element {
+  position:relative;
+  top: 18px;
+  background-color: black;
+  opacity: .75;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+.time-element:hover {
+  background-color: dimgrey;
+}
+
+#UTC05 {
+  position: relative;
+  left: 180px;
+}
+#UTC08 {
+  position: relative;
+  left: 185px;
+}
+#UTC11 {
+  position: relative;
+  left: 190px;
+}
+#UTC14 {
+  position: relative;
+  left: 195px;
+}
+#UTC17 {
+  position: relative;
+  left: 200px;
+}
+.time-separator{
+  background-color: black;
+  opacity: .75;
+  width: 2px;
+  height: 40px;
+  display: inline-block;
+}
+#sep05 {
+  position: relative;
+  top: -28px;
+  left: 179px;
+}
+#sep08 {
+  position: relative;
+  top: -28px;
+  left: 242px;
+}
+#sep11 {
+  position: relative;
+  top: -28px;
+  left: 305px;
+}
+#sep14 {
+  position: relative;
+  top: -28px;
+  left: 368px;
+}
+#sep17 {
+  position: relative;
+  top: -28px;
+  left: 430px;
+}
+
+
+#TimeSpan {
+  position: relative;
+  left: 160px;
+  bottom: 16px;
+  width: 380px;
+  height: 6px;
+  background-color: black;
+  opacity: .75;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+#WarningDiv {
+  bottom: 100px;
+  left: 15px;
+  width: 150px;
+  height: 180px;
+  background-color:grey;
+  opacity: 0.75;
+  color: white;
+  padding: 5px;
+  text-align: left;
+  line-height: 18px;  
+  border-radius: 8px;  
+  visibility: hidden;
+  overflow: auto;
+}
+#WarningHeader {
+  padding: 5px;
+  display: inline-block;
+}
+#WarningSymbol {
+  padding: 5px;
+}
+
+.warning-child {
+  color: white;
+  padding-bottom: 8px;
+  font-size: 11px;
+}
+
+#TimeWarningDiv {
+  bottom: 80px;
+  left: 210px;
+  width: 180px;
+  height: 20px;
+  background-color:grey;
+  opacity: 0.75;
+  color: white;
+  padding: 3px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 2px;  
+  border-radius: 8px;  
+  visibility: auto;
+}
+#TimeWarningSymbol {
+  padding: 2px;
+}
+
+#FilterWarningDiv {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);  
+  top: 12px;
+  width: 400px;
+  height: 18px;
+  background-color:grey;
+  opacity: 0.75;
+  color: white;
+  padding: 3px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 2px;  
+  border-radius: 8px;  
+  visibility: hidden;
+  
+}

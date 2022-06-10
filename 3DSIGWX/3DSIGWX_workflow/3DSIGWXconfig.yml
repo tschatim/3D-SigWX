@@ -1,0 +1,31 @@
+# Configuration File for the 3D-SigWX Workflow
+
+APP:
+  #EXTENT: 5.85 45.55 10.55 47.95               # Full Extent
+  #EXTENT: 7.75 46.9 8.63 47.5                  # Mittelland
+  #EXTENT: 8.2 47.2 8.4 47.47                   # Mittelland small
+  #EXTENT: 7.8 46.2 8.6 46.77                   # Alpen
+  #EXTENT: 7.75 46.45 8.3 46.8                  # Alpen small
+  #EXTENT: 8.3 45.9 9.5 46.56                   # Tessin
+  EXTENT: 8.76 46.05 9.3 46.24                  # Tessin small
+  #EXTENT: 8.38 46.54 8.73 46.95                # Föhn auf Gütsch und Altdorf
+  #EXTENT:  9.36567 47.04597 9.65431 47.27431   # Föhn in Vaduz
+  #EXTENT: 8.00376 46.97713 8.53438 47.47433    # Pilatus Richtung Norden, Nebeltag
+  XDIMENSION: longitude
+  YDIMENSION: latitude
+  VARIABLES: CLC,HEIGHT,CAPE_MU,U,V,W,T,QC
+  ZLAYERS: 24
+  MAXHEIGHT: 7000         # [m]
+  TIMEAVAILABLE: false    # Specifies, if NetCDF files per Parameter are merged as one file along
+                          # along the time Dimension (currently not working in the webapp, because
+                          # of an unknown error in the time attribute of the ArcGIS Scene Layer 
+                          # -> workaround with seperate layer per timestamp)
+
+
+DATABASE:
+  COSMOFILES: D:\3D-SigWX\COSMO-Daten\03.02.2022\   # Example Path
+  WORKGDB: C:\Temp\3DSigWX\WorkDB.gdb               # Example GDB
+
+ARCGIS:
+  USERNAME: abc   # ArcGIS Username
+  PASSWORD: abc   # ArcGIS Password

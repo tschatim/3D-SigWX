@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title>3D-SigWX</title>
+        
+        <!--CSS-->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/dark/main.css">
+        
+        <!--JS-->
+        <script src="https://js.arcgis.com/4.23/"></script>
+        <script src="getLayerIds.js" type="text/javascript"></script>
+        <script src="3DSigWX.js" type="text/javascript"></script>
+        
+        <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0-beta.81/calcite.esm.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.0-beta.81/calcite.css" />
+  
+    </head>
+
+    <body>
+      <calcite-shell content-behind>
+        <calcite-shell-panel slot="primary-panel" detached>
+        </calcite-shell-panel>
+
+        <div id="viewDiv">
+          <!--<div id="WebappHeaderDiv"><p id="WebappHeader"> 3D-SigWX</p></div>-->
+        </div>
+        <!--<div id="menu" class="esri-widget">
+            <div id="sliceContainer"></div>
+        </div>-->
+        <div id="layerToggle" class="esri-widget">
+          <p id="LayerToggleText"> Layer Selection</p>
+          <div class="layer-item">
+            <input type="checkbox" class= "layer-checkbox" id="CLCLayer" /> 
+            <span id="CloudSymbol" class="layer-symbol"> <calcite-icon icon="cloudy" scale="m"></calcite-icon></span>  Clouds
+            <span class="checkmark"></span>
+          </div>
+          <div class="layer-item">
+            <input type="checkbox" class= "layer-checkbox" id="IcingLayer" /> 
+            <span id="IcingSymbol" class="layer-symbol"> <calcite-icon icon="snow" scale="m"></calcite-icon></span>  Icing
+            <span class="checkmark"></span>
+          </div>
+          <div class="layer-item">
+            <input type="checkbox" class= "layer-checkbox" id="HorizontalWindLayer" />
+            <span id="HorizontalWindSymbol" class="layer-symbol"> <calcite-icon icon="arrow-right" scale="m"></calcite-icon></span>  Horizontal Wind
+            <span class="checkmark"></span>
+          </div>
+          <div class="layer-item">
+            <input type="checkbox" class= "layer-checkbox" id="VerticalWindLayer" />
+            <span id="VerticalWindSymbol" class="layer-symbol"> <calcite-icon icon="arrow-up" scale="m"></calcite-icon></span>  Vertical Wind
+            <span class="checkmark"></span>
+          </div>
+          <div class="layer-item">
+            <input type="checkbox" class= "layer-checkbox" id="ThunderstormLayer" />
+            <span id="ThunderstormSymbol" class="layer-symbol"> <calcite-icon icon="rain-thunder" scale="m"></calcite-icon></span>  Thunderstorm
+            <span class="checkmark"></span>
+          </div>
+        </div>
+        
+
+        <div id="infoDiv">
+          <input
+            class="esri-component esri-widget--button esri-widget esri-interactive"
+            type="button"
+            id="switch-btn"
+            value="2D"
+          />
+        </div>
+
+        <div id="LayerFilter" class="esri-widget">
+          <p id="FilterText1" class="filter-text"> Filter Clouds</p>
+          <div id="cloudsFilterWrapper">
+            <div class="cloud-item" id = "cloud0" data-cloud-classification="0">0 Oktas</div>
+            <div class="cloud-item" id = "cloud1" data-cloud-classification="1">1 Oktas</div>
+            <div class="cloud-item" id = "cloud2" data-cloud-classification="2">2 Oktas</div>
+            <div class="cloud-item" id = "cloud3" data-cloud-classification="3">3 Oktas</div>
+            <div class="cloud-item" id = "cloud4" data-cloud-classification="4">4 Oktas</div>
+            <div class="cloud-item" id = "cloud5" data-cloud-classification="5">5 Oktas</div>
+            <div class="cloud-item" id = "cloud6" data-cloud-classification="6">6 Oktas</div>
+            <div class="cloud-item" id = "cloud7" data-cloud-classification="7">7 Oktas</div>
+            <div class="cloud-item" id = "cloud8" data-cloud-classification="8">8 Oktas</div>
+          </div>
+          <div class="filter-separator"></div>
+          <p id="FilterText2" class="filter-text"> Filter Wind Level Layer</p>
+          <div id="verticalWindFilterWrapper">
+            <div class="verticalWind-item" id = "layer1" data-vertical-layer="1">1 </div>
+            <div class="verticalWind-item" id = "layer2" data-vertical-layer="2">2 </div>
+            <div class="verticalWind-item" id = "layer3" data-vertical-layer="3">3 </div>
+            <div class="verticalWind-item" id = "layer4" data-vertical-layer="4">4 </div>
+            <div class="verticalWind-item" id = "layer5" data-vertical-layer="5">5 </div>
+            <div class="verticalWind-item" id = "layer6" data-vertical-layer="6">6 </div>
+            <div class="verticalWind-item" id = "layer7" data-vertical-layer="7">7 </div>
+            <div class="verticalWind-item" id = "layer8" data-vertical-layer="8">8 </div>
+            <div class="verticalWind-item" id = "layer9" data-vertical-layer="9">9 </div>
+            <div class="verticalWind-item" id = "layer10" data-vertical-layer="10">10 </div>
+            <div class="verticalWind-item" id = "layer11" data-vertical-layer="11">11 </div>
+            <div class="verticalWind-item" id = "layer12" data-vertical-layer="12">12 </div>
+            <div class="verticalWind-item" id = "layer13" data-vertical-layer="13">13 </div>
+            <div class="verticalWind-item" id = "layer14" data-vertical-layer="14">14 </div>
+            <div class="verticalWind-item" id = "layer15" data-vertical-layer="15">15 </div>
+            <div class="verticalWind-item" id = "layer16" data-vertical-layer="16">16 </div>
+            <div class="verticalWind-item" id = "layer17" data-vertical-layer="17">17 </div>
+            <div class="verticalWind-item" id = "layer18" data-vertical-layer="18">18 </div>
+            <div class="verticalWind-item" id = "layer19" data-vertical-layer="19">19 </div>
+            <div class="verticalWind-item" id = "layer20" data-vertical-layer="20">20 </div>
+            <div class="verticalWind-item" id = "layer21" data-vertical-layer="21">21 </div>
+            <div class="verticalWind-item" id = "layer22" data-vertical-layer="22">22 </div>
+            <div class="verticalWind-item" id = "layer23" data-vertical-layer="23">23 </div>
+            <div class="verticalWind-item" id = "layer24" data-vertical-layer="24">24 </div>
+          </div>
+          <div class="filter-separator"></div>
+          <p id="FilterText3" class="filter-text"> Filter Thunderstorm</p>
+          <div id="ThunderstormFilterWrapper">
+            <!--<div class="thunderstorm-item" id = "thunderstorm1" data-thunderstorm-classification="0">Weak </div>-->
+            <div class="thunderstorm-item" id = "thunderstorm2" data-thunderstorm-classification="1">Moderate </div>
+            <div class="thunderstorm-item" id = "thunderstorm3" data-thunderstorm-classification="2">Strong </div>
+            <div class="thunderstorm-item" id = "thunderstorm4" data-thunderstorm-classification="3">Very Strong </div>
+            <div class="thunderstorm-item" id = "thunderstorm5" data-thunderstorm-classification="4">Extreme </div>
+          </div>
+        </div>
+
+        <div id="BasemapGallery" class="esri-widget"></div>
+        <!--<div id="timeSlider"></div>-->
+
+        <div id="FlightPath" class="esri-widget">
+          <p id="FlightPathText"> Flight Path Tool</p>
+          <div class="FlightPath-item" id = "AddPath" data-FlightPath-button="Add">
+            <span id="AddPathSymbol" class="esri-icon-plus-circled"></span> Add Flight Path
+          </div>
+          <div class="FlightPath-item" id = "DeletePath" data-FlightPath-button="Delete">
+            <span id="DeletePathSymbol" class="esri-icon-close-circled"></span> Delete Flight Path
+          </div>
+          <div class="FlightPath-item" id = "EditPath" data-FlightPath-button="Edit">
+            <span id="EditPathSymbol" class="esri-icon-edit"></span> Edit Flight Path
+          </div>
+        </div>
+        <div id="PathProfile" class="esri-widget">
+          <p id="PathProfileText"> Flight Path Profile</p>
+          <div class="PathProfile-item" id = "AddProfile" >Add a Flight Path Profile</div>
+        </div>
+        <div id="ChangeWaypointHeight" style="display: none">
+          <label for="waypointHeight">Waypoint Height (between 1 and 10000 m):</label>
+          <input type="number" id="waypointHeight" name="waypointHeight" min="1" max="10000" value="3000">
+          <input type="submit" id="waypointHeightSubmit" value="Change">
+        </div>
+        <div id="ElevationDiv"></div>
+
+        <div id="DateDiv">Loading...</div>
+        <div class="time-area" id="TimeDiv"></div>
+        <div class="time-area" id="TimeStops">
+          <div class="time-element"  id="UTC05">0500 UTC</div>
+          <div class="time-element"  id="UTC08">0800 UTC</div>
+          <div class="time-element"  id="UTC11">1100 UTC</div>
+          <div class="time-element"  id="UTC14">1400 UTC</div>
+          <div class="time-element"  id="UTC17">1700 UTC</div>
+          <div id="TimeSpan"></div>
+          <div class="time-separator" id="sep05"></div>
+          <div class="time-separator" id="sep08"></div>
+          <div class="time-separator" id="sep11"></div>
+          <div class="time-separator" id="sep14"></div>
+          <div class="time-separator" id="sep17"></div>
+        </div>
+
+        <div id="PreferencesDiv">
+          <p id="PreferenceTitle">Preferences <span id="PreferencesSymbol" class="esri-icon-settings"></span></p>
+          <p id="LayerViewFilterText" class="preference-subtitle">Distance Filter </p>
+          <p class="preference-text">Only features outside a certain distance to the instantaneous viewpoint are shown. Select the layers which are included in the distance filter:</p>
+          <div id="LayerDistanceFilterWrapper">
+            <div class="preference-item">
+              <input type="checkbox" class= "layerviewfilter-checkbox" id="CloudLayerViewFilter" !checked/> Clouds
+            </div>
+            <div class="preference-item">
+              <input type="checkbox" class= "layerviewfilter-checkbox" id="IcingLayerViewFilter" !checked/> Icing
+            </div>
+            <div class="preference-item">
+              <input type="checkbox" class= "layerviewfilter-checkbox" id="HorizontalWindLayerViewFilter" !checked/> Horizontal Wind
+            </div>
+            <div class="preference-item">
+              <input type="checkbox" class= "layerviewfilter-checkbox" id="VerticalWindLayerViewFilter" !checked/> Vertical Wind
+            </div>
+            <div class="preference-item">
+              <input type="checkbox" class= "layerviewfilter-checkbox" id="ThunderstormLayerViewFilter" !checked/> Thunderstorm
+            </div>
+            <p class="preference-text">Set the buffer size (distance of filter):</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="50" value="20" class="slider" id="FilterDistanceSlider" oninput="LayerViewFilterDistance.value = FilterDistanceSlider.value + ' km'">
+              <output name="LayerViewFilterDistance" id="LayerViewFilterDistance">20 km</output>
+            </div>
+          </div>
+          <div class="filter-separator"></div>
+          <div id="LayerFilterWrapper">
+            <p id="LayerFilterPreferencesText" class="preference-subtitle">Layer Filter </p>
+            <p class="preference-text">Reset the Filters when the expand is closed:</p>
+            <div class="preference-item">
+              <input type="checkbox" class= "layerfilterpreferences-checkbox" id="LayerFilterReset" !checked/> Filter Reset when Expand closed
+            </div>
+          </div>
+          <div class="filter-separator"></div>
+          <p id="LayerViewFilterText" class="preference-subtitle">Layer Settings </p>
+          <p class="preference-text"><b>Vertical Wind Layer </b></p>
+        </div>
+
+        <div id="WarningDiv">
+          <span id="WarningSymbol" class="warning-symbol"> <calcite-icon icon="exclamation-mark-triangle-f" scale="m"></calcite-icon>
+            <p id="WarningHeader"> Warnings </p>
+          </span>  
+        </div>
+
+        <div id="TimeWarningDiv">
+          <span id="TimeWarningSymbol" class="warning-symbol"> <calcite-icon icon="exclamation-mark-triangle-f" scale="s"></calcite-icon>
+            <p id="WarningHeader"> No time selected </p>
+          </span>  
+        </div>
+
+        <div id="FilterWarningDiv">
+          <span id="FilterWarningSymbol" class="warning-symbol"> <calcite-icon icon="exclamation-mark-triangle-f" scale="s"></calcite-icon>
+            <p id="WarningHeader"> Active Filter! Probably not all weather objects visible!</p>
+          </span>  
+        </div>
+    
+      </calcite-shell>
+    </body>
+</html>
+
+
